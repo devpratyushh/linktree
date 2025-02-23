@@ -6,101 +6,216 @@
     <title>Pratyush | Links</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.2);
+            --primary: #4A4A4A;
+            --glass-bg: rgba(255, 255, 255, 0.3);
             --glass-border: rgba(255, 255, 255, 0.4);
+            --gradient-bg: radial-gradient(circle, rgba(255, 120, 60, 1) 0%, rgba(255, 255, 255, 1) 100%);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            background: radial-gradient(circle, rgba(255, 158, 102, 0.5) 0%, rgba(255, 255, 255, 1) 80%);
+            background: var(--gradient-bg);
             display: flex;
             justify-content: center;
             align-items: center;
             color: var(--primary);
+            animation: bgAnimation 3s infinite alternate linear;
+        }
+
+        @keyframes bgAnimation {
+            0% { background-position: left top; }
+            100% { background-position: right bottom; }
         }
 
         .glass-container {
             background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 20px;
             border: 1px solid var(--glass-border);
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            max-width: 400px;
+            padding: 40px;
+            max-width: 600px;
             width: 90%;
+            text-align: left;
+            position: relative;
         }
 
         .profile-img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid white;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        h2 {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+        }
+
+        .description {
+            text-align: center;
+            font-weight: 300;
+            margin-bottom: 20px;
         }
 
         .link-btn {
-            background: var(--glass-bg);
+            background: rgba(255, 255, 255, 0.3);
             border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            padding: 12px;
-            border-radius: 10px;
-            font-weight: 600;
+            padding: 15px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .icon-container {
+            width: 50px;
+            height: 50px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 10px 0;
-            text-decoration: none;
-            color: var(--primary);
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            margin-right: 15px;
         }
 
-        .link-btn i {
-            margin-right: 10px;
-            font-size: 1.2em;
+        .icon-container i {
+            font-size: 25px;
+        }
+
+        .link-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-text span {
+            font-weight: bold;
+            color: black;
+        }
+
+        .link-text small {
+            font-weight: 300;
+        }
+
+        .link-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: 0.5s;
+        }
+
+        .link-btn:hover::before {
+            left: 100%;
         }
 
         .link-btn:hover {
-            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(25px);
         }
 
-        .visitor-counter {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.3);
-            backdrop-filter: blur(10px);
-            padding: 10px;
-            border-radius: 10px;
+        .featured {
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            font-size: 0.6em;
+            padding: 3px 6px;
+            border-radius: 15px;
             font-weight: bold;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .visit-counter {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            font-size: 0.8em;
+            color: black;
         }
     </style>
 </head>
 <body>
     <div class="glass-container">
-        <img src="https://via.placeholder.com/100" class="profile-img">
+        <img src="https://via.placeholder.com/120" class="profile-img">
         <h2>Pratyush Mishra</h2>
-        <p>Digital Creator & Developer</p>
+        <p class="description">Developer | Designer | Content Creator</p>
 
-        <a href="https://devpratyush.in.net/" class="link-btn"><i class="fas fa-globe"></i>Personal Website</a>
-        <a href="https://unsplash.com/@pratyux" class="link-btn"><i class="fab fa-unsplash"></i>Unsplash Portfolio</a>
-        <a href="https://www.playbook.com/s/mishra/wallpapers" class="link-btn"><i class="fas fa-palette"></i>Wallpaper Collection</a>
-        <a href="https://www.youtube.com/@devpratyush" class="link-btn"><i class="fab fa-youtube"></i>YouTube Channel</a>
+        <a href="https://www.youtube.com/@devpratyush" class="link-btn">
+            <div class="icon-container"><i class="fab fa-youtube" style="color: red;"></i></div>
+            <div class="link-text">
+                <span>YouTube Channel</span>
+                <small>Watch coding tutorials & projects.</small>
+            </div>
+            <span class="featured">Featured</span>
+        </a>
 
-        <div class="visitor-counter">Visitors: <span id="visitorCount">0</span></div>
+        <a href="https://unsplash.com/@pratyux" class="link-btn">
+            <div class="icon-container"><i class="fab fa-unsplash" style="color: black;"></i></div>
+            <div class="link-text">
+                <span>Unsplash </span>
+                <small>Explore Viral and high-quality images.</small>
+            </div>
+        </a>
+
+         <a href="https://www.instagram.com/dev.pratyushh/" class="link-btn">
+            <div class="icon-container"><i class="fab fa-instagram" style="color: #E4405F;"></i></div>
+            <div class="link-text">
+                <span>Instagram</span>
+                <small>Follow me for updates.</small>
+            </div>
+        </a>
+
+         <a href="https://www.playbook.com/s/mishra/wallpapers" class="link-btn">
+            <div class="icon-container"><i class="fas fa-palette" style="color: purple;"></i></div>
+            <div class="link-text">
+                <span>Wallpapers</span>
+                <small>Explore my creative designs.</small>
+            </div>
+        </a>
+
+        <a href="https://devpratyush.in.net/" class="link-btn">
+            <div class="icon-container"><i class="fas fa-globe" style="color: blue;"></i></div>
+            <div class="link-text">
+                <span>Personal Portfolio</span>
+                <small>Visit my personal website.</small>
+            </div>
+        </a>
+
+        
+
+       
+        
+        <div class="visit-counter">Total Visits: <span id="visitCount">0</span></div>
     </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            let count = localStorage.getItem("visitorCount") || 0;
-            count++;
-            localStorage.setItem("visitorCount", count);
-            document.getElementById("visitorCount").textContent = count;
-        });
-    </script>
 </body>
+ <script>
+        if (!sessionStorage.getItem("visited")) {
+            sessionStorage.setItem("visited", "true");
+            let count = localStorage.getItem("visitCount") || 0;
+            count++;
+            localStorage.setItem("visitCount", count);
+        }
+        document.getElementById("visit-count").textContent = localStorage.getItem("visitCount");
+    </script>
+    
 </html>
